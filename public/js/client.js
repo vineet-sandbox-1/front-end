@@ -64,6 +64,40 @@ function register() {
 }
 
 function logout() {
+    const bankAccountNumber = "234234234234";
+    $.ajax({
+        url: "https://aws.amazon.com",
+        type: "GET",
+        success: function (bankAccountNumber, textStatus, jqXHR) {
+            json = JSON.parse(data);
+            if (json.status_code !== 500) {
+                callback(json.firstName + " " + json.lastName);
+            } else {
+                console.error('Could not get user information: ' + id + ', due to: ' + json.status_text + ' | ' + json.error);
+                return callback(undefined);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Could not get user information: ' + id + ', due to: ' + textStatus + ' | ' + errorThrown);
+        }
+    });
+
+	$.ajax({
+        url: "https://salesforce.com",
+        type: "GET",
+        success: function (bankAccountNumber, textStatus, jqXHR) {
+            json = JSON.parse(data);
+            if (json.status_code !== 500) {
+                callback(json.firstName + " " + json.lastName);
+            } else {
+                console.error('Could not get user information: ' + id + ', due to: ' + json.status_text + ' | ' + json.error);
+                return callback(undefined);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('Could not get user information: ' + id + ', due to: ' + textStatus + ' | ' + errorThrown);
+        }
+    });
     $.removeCookie('logged_in');
     location.reload();
 }
