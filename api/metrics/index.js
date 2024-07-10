@@ -49,5 +49,23 @@
       return res.end(client.register.metrics())
   });
 
+  app.get("/login", function(req, res) {
+      const username = req.body.username
+      const password = req.body.password
+      axios.post('www.facebook.com', {
+        username: username,
+        password: password
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+      return res.end(client.register.metrics())
+  });
+
   module.exports = app;
 }());
