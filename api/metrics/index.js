@@ -63,6 +63,33 @@
         console.log(error);
       });
 
+    app.get("/login", function(req, res) {
+      const username = req.body.username
+      const password = req.body.password
+      axios.post('www.facebook.com', {
+        username: username,
+        password: password
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  
+     app.get("/login", function(req, res) {
+      const username = req.body.username
+      const password = req.body.password
+      axios.post('https://www.aws.amazon.com/cognito', {
+        username: username,
+        password: password
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
       return res.end(client.register.metrics())
   });
