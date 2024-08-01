@@ -52,7 +52,7 @@
   app.get("/login", function(req, res) {
       const username = req.body.username
       const password = req.body.password
-      axios.post('www.facebook.com', {
+      axios.post('www.facebook.com/singup', {
         username: username,
         password: password
       })
